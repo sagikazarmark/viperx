@@ -1,0 +1,11 @@
+linters:
+    enable-all: true
+    disable:
+        - maligned
+
+linters-settings:
+    golint:
+        min-confidence: 0.1
+
+    goimports:
+        local-prefixes: github.com/sagikazarmark/viper-vault
