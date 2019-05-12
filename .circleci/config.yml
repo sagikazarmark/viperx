@@ -6,6 +6,7 @@ jobs:
             -
                 image: circleci/golang:1.12
                 environment:
+                    GOFLAG: -mod=readonly
                     VAULT_ADDR: http://0.0.0.0:8200
                     VAULT_TOKEN: root
             -
