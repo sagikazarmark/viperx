@@ -23,9 +23,9 @@ Package `remote` provides a remote provider registry.
 package main
 
 import (
-    "github.com/spf13/viper"
+	"github.com/spf13/viper"
 
-    vaultremote "github.com/sagikazarmark/viperx/remote"
+	vaultremote "github.com/sagikazarmark/viperx/remote"
 )
 
 func main() {
@@ -41,9 +41,9 @@ func main() {
 package main
 
 import (
-    "github.com/spf13/viper"
+	"github.com/spf13/viper"
 
-    "github.com/sagikazarmark/viperx/remote/vault"
+	"github.com/sagikazarmark/viperx/remote/vault"
 )
 
 func main() {
