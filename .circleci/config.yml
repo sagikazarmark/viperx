@@ -5,6 +5,15 @@ jobs:
         docker:
             -
                 image: circleci/golang:1.12
+                environment:
+                    VAULT_ADDR: http://0.0.0.0:8200
+                    VAULT_TOKEN: token
+            -
+                image: vault:1.1.2
+                command: server -dev
+                environment:
+                    SKIP_SETCAP: true
+                    VAULT_DEV_ROOT_TOKEN_ID: root
 
         steps:
             - checkout
