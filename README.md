@@ -6,12 +6,15 @@
 [![GolangCI](https://golangci.com/badges/github.com/sagikazarmark/viperx.svg)](https://golangci.com/r/github.com/sagikazarmark/viperx)
 [![GoDoc](http://img.shields.io/badge/godoc-reference-5272B4.svg?style=flat-square)](https://godoc.org/github.com/sagikazarmark/viperx)
 
+This library adds some extensions to the core [Viper](https://github.com/spf13/viper) package.
+
 
 ## Installation
 
 ```bash
 $ go get github.com/sagikazarmark/viperx
 ```
+
 
 ## Usage
 
@@ -53,6 +56,13 @@ func main() {
 	_ = viper.ReadRemoteConfig()
 }
 ```
+
+
+## Roadmap
+
+- [ ] Add etcd remote provider support (Using Go CDK `secrets`?)
+- [ ] Add consul remote provider support (Using Go CDK `secrets`?)
+- [ ] Add a friendly (declarative?) API for defining configuration
 
 
 ## License
