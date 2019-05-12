@@ -2,8 +2,8 @@
 
 OS = $(shell uname)
 
-VAULT_ADDR=http://127.0.0.1:8200
-VAULT_TOKEN=root
+VAULT_ADDR ?= http://127.0.0.1:8200
+VAULT_TOKEN ?= root
 
 # Build variables
 BUILD_DIR ?= build
