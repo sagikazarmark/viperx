@@ -48,6 +48,7 @@ import (
 
 func main() {
 	_ = viper.AddRemoteProvider("vault", "endpoint", "path")
+	viper.SetConfigType("json") // This is required for the vault provider
 	
 	_ = viper.ReadRemoteConfig()
 }
