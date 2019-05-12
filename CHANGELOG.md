@@ -10,4 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 
-[Unreleased]: https://github.com/sagikazarmark/viper-vault/compare/v0.0.0...HEAD
+## [0.1.0] - 2019-05-12
+
+
+[Unreleased]: https://github.com/sagikazarmark/viper-vault/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/sagikazarmark/viper-vault/compare/v0.0.0...v0.1.0
