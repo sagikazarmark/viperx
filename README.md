@@ -13,6 +13,46 @@
 $ go get github.com/sagikazarmark/viperx
 ```
 
+## Usage
+
+### Remote config provider registry
+
+Package `remote` provides a remote provider registry.
+
+```go
+package main
+
+import (
+		"github.com/spf13/viper"
+
+    	vaultremote "github.com/sagikazarmark/viperx/remote"
+)
+
+func main() {
+	vaultremote.RegisterConfigProvider("vault", &myVaultProvider{})
+	
+	_ = viper.AddRemoteProvider("vault", "endpoint", "path")
+}
+```
+
+### Hashicorp Vault Remote config provider
+
+```go
+package main
+
+import (
+		"github.com/spf13/viper"
+
+    	_ "github.com/sagikazarmark/viperx/remote/vault"
+)
+
+func main() {
+	_ = viper.AddRemoteProvider("vault", "endpoint", "path")
+	
+	_ = viper.ReadRemoteConfig()
+}
+```
+
 
 ## License
 
