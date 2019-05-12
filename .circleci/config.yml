@@ -7,7 +7,7 @@ jobs:
                 image: circleci/golang:1.12
                 environment:
                     VAULT_ADDR: http://0.0.0.0:8200
-                    VAULT_TOKEN: token
+                    VAULT_TOKEN: root
             -
                 image: vault:1.1.2
                 command: server -dev
