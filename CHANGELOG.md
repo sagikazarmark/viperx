@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- [Bank Vaults](https://github.com/banzaicloud/bank-vaults) provider
+- Error handler support in the config provider registry
+
 
 ## [0.1.0] - 2019-05-12
 
