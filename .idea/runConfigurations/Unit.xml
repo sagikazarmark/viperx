@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Unit" type="GoTestRunConfiguration" factoryName="Go Test">
-    <module name="ocmux" />
+    <module name="viperx" />
     <working_directory value="$PROJECT_DIR$/" />
     <framework value="gotest" />
     <kind value="DIRECTORY" />
