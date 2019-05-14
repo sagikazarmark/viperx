@@ -46,6 +46,11 @@ func TestRegisterConfigProvider(t *testing.T) {
 		viper.RemoteConfig = remoteConfig
 	}()
 
+	supportedRemoteProviders := viper.SupportedRemoteProviders
+	defer func() {
+		viper.SupportedRemoteProviders = supportedRemoteProviders
+	}()
+
 	RegisterConfigProvider("inmemory", &inMemoryConfigProvider{})
 
 	v := viper.New()
@@ -75,5 +80,50 @@ func TestConfigProviderRegistry_RegisterConfigProvider(t *testing.T) {
 
 	if registry.configProviders["inmemory"] != configProvider {
 		t.Error("failed to register config provider")
+	}
+}
+
+type errorHandler struct {
+	err error
+}
+
+func (h *errorHandler) Handle(err error) {
+	h.err = err
+}
+
+func TestConfigProviderRegistry_ErrorHandler(t *testing.T) {
+	remoteConfig := viper.RemoteConfig
+	defer func() {
+		viper.RemoteConfig = remoteConfig
+	}()
+
+	supportedRemoteProviders := viper.SupportedRemoteProviders
+	defer func() {
+		viper.SupportedRemoteProviders = supportedRemoteProviders
+	}()
+
+	errorHandler := &errorHandler{}
+	registry := NewConfigProviderRegistry()
+	registry.SetErrorHandler(errorHandler)
+
+	viper.RemoteConfig = registry
+	AddSupportedRemoteProvider("inmemory")
+
+	v := viper.New()
+
+	err := v.AddRemoteProvider("inmemory", "inmemory", "inmemory")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	v.SetConfigType("json")
+
+	err = v.ReadRemoteConfig()
+	if err == nil {
+		t.Fatal("expected an error")
+	}
+
+	if errorHandler.err == nil {
+		t.Fatal("expected an error")
 	}
 }
