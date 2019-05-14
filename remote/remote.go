@@ -21,6 +21,11 @@ func RegisterConfigProvider(provider string, configProvider ConfigProvider) {
 	AddSupportedRemoteProvider(provider)
 }
 
+// SetErrorHandler sets the error handler of the global config provider registry.
+func SetErrorHandler(errorHandler ErrorHandler) {
+	r.SetErrorHandler(errorHandler)
+}
+
 // AddSupportedRemoteProvider adds a remote provider to the list of supported providers.
 func AddSupportedRemoteProvider(provider string) {
 	if !isStringInSlice(provider, viper.SupportedRemoteProviders) {
@@ -45,9 +50,15 @@ type ConfigProvider interface {
 	WatchChannel(rp viper.RemoteProvider) (<-chan *viper.RemoteResponse, chan bool)
 }
 
+// ErrorHandler handles an error occurred in a remote config provider.
+type ErrorHandler interface {
+	Handle(err error)
+}
+
 // ConfigProviderRegistry acts as a registry for remote container providers.
 type ConfigProviderRegistry struct {
 	configProviders map[string]ConfigProvider
+	errorHandler    ErrorHandler
 }
 
 // NewConfigProviderRegistry returns a new ConfigProviderRegistry.
@@ -60,6 +71,17 @@ func NewConfigProviderRegistry() *ConfigProviderRegistry {
 // RegisterConfigProvider registers a config provider in the registry.
 func (r *ConfigProviderRegistry) RegisterConfigProvider(provider string, configProvider ConfigProvider) {
 	r.configProviders[provider] = configProvider
+}
+
+// SetErrorHandler sets the error handler of the registry.
+func (r *ConfigProviderRegistry) SetErrorHandler(errorHandler ErrorHandler) {
+	r.errorHandler = errorHandler
+}
+
+func (r *ConfigProviderRegistry) handleError(err error) {
+	if r.errorHandler != nil {
+		r.errorHandler.Handle(err)
+	}
 }
 
 func (r *ConfigProviderRegistry) getConfigProvider(rp viper.RemoteProvider) (ConfigProvider, error) {
@@ -76,20 +98,38 @@ func (r *ConfigProviderRegistry) getConfigProvider(rp viper.RemoteProvider) (Con
 func (r *ConfigProviderRegistry) Get(rp viper.RemoteProvider) (io.Reader, error) {
 	configProvider, err := r.getConfigProvider(rp)
 	if err != nil {
+		r.handleError(err)
+
 		return nil, err
 	}
 
-	return configProvider.Get(rp)
+	re, err := configProvider.Get(rp)
+	if err != nil {
+		r.handleError(err)
+
+		return nil, err
+	}
+
+	return re, nil
 }
 
 // Watch implements the ConfigProvider interface.
 func (r *ConfigProviderRegistry) Watch(rp viper.RemoteProvider) (io.Reader, error) {
 	configProvider, err := r.getConfigProvider(rp)
 	if err != nil {
+		r.handleError(err)
+
 		return nil, err
 	}
 
-	return configProvider.Watch(rp)
+	re, err := configProvider.Watch(rp)
+	if err != nil {
+		r.handleError(err)
+
+		return nil, err
+	}
+
+	return re, nil
 }
 
 // WatchChannel implements the ConfigProvider interface.
