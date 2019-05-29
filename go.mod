@@ -3,7 +3,7 @@ module github.com/sagikazarmark/viperx
 go 1.12
 
 require (
-	github.com/banzaicloud/bank-vaults v0.0.0-20190514090641-f54a803d571a
+	github.com/banzaicloud/bank-vaults v0.0.0-20190527053302-6670d4c7b6a7
 	github.com/gogo/protobuf v1.2.1 // indirect
 	github.com/golang/protobuf v1.3.1 // indirect
 	github.com/hashicorp/vault v1.1.2
