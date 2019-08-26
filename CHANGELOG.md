@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade Hashicorp Vault library
+- Upgrade Bank-Vaults library
+
 
 ## [0.2.0] - 2019-05-14
 
