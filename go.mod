@@ -3,15 +3,14 @@ module github.com/sagikazarmark/viperx
 go 1.12
 
 require (
-	github.com/banzaicloud/bank-vaults v0.0.0-20190527053302-6670d4c7b6a7
-	github.com/gogo/protobuf v1.2.1 // indirect
-	github.com/golang/protobuf v1.3.1 // indirect
-	github.com/hashicorp/vault v1.1.2
-	github.com/pkg/errors v0.8.1
-	github.com/spf13/viper v1.3.2
-	golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3 // indirect
-	golang.org/x/sys v0.0.0-20190403152447-81d4e9dc473e // indirect
-	golang.org/x/text v0.3.1-0.20181227161524-e6919f6577db // indirect
-	golang.org/x/time v0.0.0-20190308202827-9d24e82272b4 // indirect
-	google.golang.org/appengine v1.4.0 // indirect
+	emperror.dev/errors v0.4.2
+	github.com/banzaicloud/bank-vaults/pkg/sdk v0.1.2
+	github.com/hashicorp/vault/api v1.0.4
+	github.com/spf13/viper v1.4.0
+)
+
+replace (
+	k8s.io/api => k8s.io/api v0.0.0-20181213150558-05914d821849
+	k8s.io/apimachinery => k8s.io/apimachinery v0.0.0-20181127025237-2b1284ed4c93
+	k8s.io/client-go => k8s.io/client-go v2.0.0-alpha.0.0.20181213151034-8d9ed539ba31+incompatible
 )
