@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+
+## [0.3.0] - 2019-08-26
+
 ### Changed
 
 - Upgrade Hashicorp Vault library
@@ -26,6 +29,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.1.0] - 2019-05-12
 
 
-[Unreleased]: https://github.com/sagikazarmark/viperx/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/sagikazarmark/viperx/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/sagikazarmark/viperx/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/sagikazarmark/viperx/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/sagikazarmark/viperx/compare/v0.0.0...v0.1.0
