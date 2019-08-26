@@ -6,9 +6,9 @@ import (
 	"io"
 	"net/url"
 
-	"github.com/banzaicloud/bank-vaults/pkg/vault"
+	"emperror.dev/errors"
+	"github.com/banzaicloud/bank-vaults/pkg/sdk/vault"
 	"github.com/hashicorp/vault/api"
-	"github.com/pkg/errors"
 	"github.com/spf13/viper"
 
 	"github.com/sagikazarmark/viperx/remote"
@@ -31,7 +31,7 @@ func (p ConfigProvider) Get(rp viper.RemoteProvider) (io.Reader, error) {
 	endpoint := rp.Endpoint()
 	u, err := url.Parse(endpoint)
 	if err != nil {
-		return nil, errors.Wrap(err, "failed to parse provider endpoint")
+		return nil, errors.WrapIf(err, "failed to parse provider endpoint")
 	}
 
 	query := u.Query()
@@ -41,7 +41,7 @@ func (p ConfigProvider) Get(rp viper.RemoteProvider) (io.Reader, error) {
 	config.Address = u.String()
 	rawClient, err := api.NewClient(config)
 	if err != nil {
-		return nil, errors.Wrap(err, "failed to create raw vault api client")
+		return nil, errors.WrapIf(err, "failed to create raw vault api client")
 	}
 
 	rawClient.SetToken(query.Get("token"))
@@ -52,13 +52,13 @@ func (p ConfigProvider) Get(rp viper.RemoteProvider) (io.Reader, error) {
 		vault.ClientAuthPath(query.Get("authPath")),
 	)
 	if err != nil {
-		return nil, errors.Wrap(err, "failed to create vault api client")
+		return nil, errors.WrapIf(err, "failed to create vault api client")
 	}
 	defer client.Close() // We close the client here to stop the unnecessary token renewal
 
 	secret, err := client.RawClient().Logical().Read(rp.Path())
 	if err != nil {
-		return nil, errors.Wrap(err, "failed to read secret")
+		return nil, errors.WrapIf(err, "failed to read secret")
 	}
 
 	if secret == nil {
@@ -71,7 +71,7 @@ func (p ConfigProvider) Get(rp viper.RemoteProvider) (io.Reader, error) {
 
 	b, err := json.Marshal(secret.Data["data"])
 	if err != nil {
-		return nil, errors.Wrap(err, "failed to json encode secret")
+		return nil, errors.WrapIf(err, "failed to json encode secret")
 	}
 
 	return bytes.NewReader(b), nil
