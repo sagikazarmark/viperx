@@ -1,12 +1,14 @@
-linters:
-    enable-all: true
-    disable:
-        - maligned
-        - dupl
-
 linters-settings:
     golint:
         min-confidence: 0.1
-
     goimports:
-        local-prefixes: github.com/sagikazarmark/viper-vault
+        local-prefixes: github.com/sagikazarmark/viperx
+
+linters:
+    enable-all: true
+    disable:
+        - funlen
+        - wsl
+
+service:
+    golangci-lint-version: 1.21.x
