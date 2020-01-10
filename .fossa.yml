@@ -1,0 +1,14 @@
+version: 2
+cli:
+    server: https://app.fossa.com
+    fetcher: custom
+    project: viperx
+analyze:
+    modules:
+        -   name: github.com/sagikazarmark/viperx
+            type: go
+            target: github.com/sagikazarmark/viperx
+            strategy: gomodules
+            path: .
+            options:
+                allow-unresolved: true
