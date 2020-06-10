@@ -5,10 +5,58 @@ linters-settings:
         local-prefixes: github.com/sagikazarmark/viperx
 
 linters:
-    enable-all: true
-    disable:
-        - funlen
-        - wsl
+    disable-all: true
+    enable:
+        - bodyclose
+        - deadcode
+        - dogsled
+        - dupl
+        - errcheck
+        # - exportloopref
+        - gochecknoglobals
+        - gochecknoinits
+        - gocognit
+        - goconst
+        - gocritic
+        - gocyclo
+        - godot
+        - gofmt
+        - goimports
+        - golint
+        - goprintffuncname
+        - gosec
+        - gosimple
+        - govet
+        - ineffassign
+        - lll
+        - misspell
+        - nakedret
+        - nolintlint
+        - prealloc
+        - rowserrcheck
+        - scopelint
+        - staticcheck
+        - structcheck
+        - stylecheck
+        - typecheck
+        - unconvert
+        - unparam
+        - unused
+        - varcheck
+        - whitespace
 
-service:
-    golangci-lint-version: 1.21.x
+        # unused
+        # - depguard
+        # - gomodguard
+
+        # don't enable:
+        # - asciicheck
+        # - funlen
+        # - godox
+        # - goerr113
+        # - gomnd
+        # - interfacer
+        # - maligned
+        # - nestif
+        # - testpackage
+        # - wsl
