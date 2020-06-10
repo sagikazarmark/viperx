@@ -3,7 +3,7 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/sagikazarmark/viperx/CI?style=flat-square)](https://github.com/sagikazarmark/viperx/actions?query=workflow%3ACI)
 [![Codecov](https://img.shields.io/codecov/c/github/sagikazarmark/viperx?style=flat-square)](https://codecov.io/gh/sagikazarmark/viperx)
 [![Go Report Card](https://goreportcard.com/badge/github.com/sagikazarmark/viperx?style=flat-square)](https://goreportcard.com/report/github.com/sagikazarmark/viperx)
-![Go Version](https://img.shields.io/badge/go%20version-%3E=1.12-61CFDD.svg?style=flat-square)
+![Go Version](https://img.shields.io/badge/go%20version-%3E=1.13-61CFDD.svg?style=flat-square)
 [![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/mod/github.com/sagikazarmark/viperx)
 [![FOSSA Status](https://app.fossa.com/api/projects/custom%2B8125%2Fviperx.svg?type=shield)](https://app.fossa.com/projects/custom%2B8125%2Fviperx?ref=badge_shield)
 
