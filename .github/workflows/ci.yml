@@ -24,8 +24,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Build
+        run: ./pleasew build ./...
+
       - name: Lint
-        run: make lint
+        run: ./pleasew lint
 
   test:
     name: Test
@@ -56,8 +59,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Build
+        run: ./pleasew build ./...
+
       - name: Test
-        run: make test
+        run: ./pleasew test2
         env:
           VAULT_ADDR: http://0.0.0.0:${{ job.services.vault.ports['8200'] }}
           VAULT_TOKEN: root
@@ -67,4 +73,4 @@ jobs:
         if: always()
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: build/coverage.txt
+          file: plz-out/log/coverage.txt
