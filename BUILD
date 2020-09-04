@@ -4,21 +4,10 @@ github_repo(
     revision = "ec5cf0342df6f6a015668edc353a964bf71ee28d",
 )
 
-genrule(
+# See https://github.com/thought-machine/please/issues/1173
+filegroup(
     name = "go.mod",
-    srcs = ["go.mod"],
-    outs = ["go.mod"],
-    cmd = [
-        """export GO=$(cat "$SRC" | grep '^go .*$') && cat > $OUT << EOF
-module plz-out
-
-$GO
-EOF
-      """,
-    ],
-    labels = [
-        "link:plz-out/",
-    ],
+    labels = ["go"],
 )
 
 CONFIG.setdefault("RELEASE_TAG_PREFIX", "v")
