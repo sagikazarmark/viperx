@@ -1,0 +1,12 @@
+go_library(
+    name = "remote",
+    srcs = glob(["*.go"], exclude = ["*_test.go"]),
+    visibility = ["//remote/..."],
+    deps = ["//third_party/go/github.com/spf13/viper"],
+)
+
+go_test(
+    name = "test",
+    srcs = glob(["*.go"]),
+    deps = ["//third_party/go/github.com/spf13/viper"],
+)

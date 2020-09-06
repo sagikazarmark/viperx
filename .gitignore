@@ -1,6 +1,7 @@
 /bin/
 /build/
 /docker-compose.override.yml
+/tmp/
 /vendor/
 
 # IDE integration

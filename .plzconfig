@@ -3,11 +3,8 @@ version = 15.2.0
 
 [go]
 importpath = github.com/sagikazarmark/viperx
-gopath = ""
 
 [buildconfig]
-go-home = "$(eval echo ~$(whoami))"
-
 golangci-lint-version = 1.30.0
 gotestsum-version = 0.5.3
 

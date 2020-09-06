@@ -11,9 +11,9 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     env:
-      VERBOSE: 1
       GOFLAGS: -mod=readonly
       GOPROXY: https://proxy.golang.org
+      PLZ_ARGS: -p
 
     steps:
       - name: Set up Go
@@ -25,10 +25,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build
-        run: ./pleasew build ./...
+        run: ./pleasew $PLZ_ARGS build :go.mod
 
       - name: Lint
-        run: ./pleasew lint
+        run: ./pleasew $PLZ_ARGS lint
 
   test:
     name: Test
@@ -37,9 +37,9 @@ jobs:
       matrix:
         go: ['1.13', '1.14', '1.15']
     env:
-      VERBOSE: 1
       GOFLAGS: -mod=readonly
       GOPROXY: https://proxy.golang.org
+      PLZ_ARGS: -p
 
     services:
       vault:
@@ -60,10 +60,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build
-        run: ./pleasew build ./...
+        run: ./pleasew $PLZ_ARGS build :go.mod
 
       - name: Test
-        run: ./pleasew test2
+        run: ./pleasew $PLZ_ARGS test2
         env:
           VAULT_ADDR: http://0.0.0.0:${{ job.services.vault.ports['8200'] }}
           VAULT_TOKEN: root
@@ -74,3 +74,49 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: plz-out/log/coverage.txt
+
+  experimental:
+    name: Build (Please experimental)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go: ['1.13', '1.14', '1.15']
+    env:
+      GOFLAGS: -mod=readonly
+      GOPROXY: https://proxy.golang.org
+      PLZ_ARGS: -p --profile experimental
+
+    services:
+      vault:
+        image: vault:1.5.3
+        ports:
+          - 8200
+        env:
+          SKIP_SETCAP: true
+          VAULT_DEV_ROOT_TOKEN_ID: root
+
+    steps:
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.go }}
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: ./pleasew $PLZ_ARGS build ./...
+
+      - name: Test
+        run: ./pleasew $PLZ_ARGS test ./...
+        env:
+          VAULT_ADDR: http://0.0.0.0:${{ job.services.vault.ports['8200'] }}
+          VAULT_TOKEN: root
+
+      - name: Save Please log output
+        uses: actions/upload-artifact@v1
+        with:
+          name: build-log
+          path: plz-out/log
+
+      # TODO: upload coverage
