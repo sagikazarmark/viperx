@@ -1,0 +1,22 @@
+go_library(
+    name = "vault",
+    srcs = glob(["*.go"], exclude = ["*_test.go"]),
+    visibility = ["//remote/..."],
+    deps = [
+        "//remote",
+        "//third_party/go/emperror.dev/errors",
+        "//third_party/go/github.com/hashicorp/vault/api",
+        "//third_party/go/github.com/spf13/viper",
+    ],
+)
+
+go_test(
+    name = "test",
+    srcs = glob(["*.go"]),
+    deps = [
+        "//remote",
+        "//third_party/go/emperror.dev/errors",
+        "//third_party/go/github.com/hashicorp/vault/api",
+        "//third_party/go/github.com/spf13/viper",
+    ],
+)

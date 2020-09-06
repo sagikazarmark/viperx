@@ -1,0 +1,31 @@
+subinclude("///pleasegomod//:build_defs")
+
+go_module_download(
+    name = "errors",
+    module = "github.com/pkg/errors",
+    sum = "h1:J8lpUdobwIeCI7OiSxHqEwJUKvJwicL5+3v1oe2Yb4k=",
+    tag = "download",
+    version = "v0.9.0",
+    visibility = ["//third_party/go/github.com/pkg/errors/..."],
+)
+
+fileexport(
+    name = "errors",
+    srcs = [
+        "cause.go",
+        "errors.go",
+        "go113.go",
+        "stack.go",
+    ],
+    tag = "go_source",
+    deps = [":_errors#download"],
+)
+
+go_library(
+    name = "errors",
+    srcs = [":_errors#go_source"],
+    cover = False,
+    import_path = "github.com/pkg/errors",
+    visibility = ["PUBLIC"],
+    deps = [],
+)

@@ -4,6 +4,11 @@ github_repo(
     revision = "ec5cf0342df6f6a015668edc353a964bf71ee28d",
 )
 
+http_archive(
+    name = "pleasegomod",
+    urls = [f"https://github.com/sagikazarmark/please-go-modules/releases/download/v0.0.4/gogetgen_{CONFIG.HOSTOS}_{CONFIG.HOSTARCH}.tar.gz"],
+)
+
 # See https://github.com/thought-machine/please/issues/1173
 filegroup(
     name = "go.mod",
