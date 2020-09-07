@@ -24,9 +24,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build
-        run: ./pleasew $PLZ_ARGS build :go.mod
-
       - name: Lint
         run: ./pleasew $PLZ_ARGS lint
 
@@ -58,9 +55,6 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Build
-        run: ./pleasew $PLZ_ARGS build :go.mod
 
       - name: Test
         run: ./pleasew $PLZ_ARGS test2
