@@ -1,18 +1,12 @@
 github_repo(
     name = "pleasings2",
     repo = "sagikazarmark/mypleasings",
-    revision = "ec5cf0342df6f6a015668edc353a964bf71ee28d",
+    revision = "bfbf7680aba0c34aa704ef68f0af2721001df483",
 )
 
 http_archive(
     name = "pleasegomod",
     urls = [f"https://github.com/sagikazarmark/please-go-modules/releases/download/v0.0.6/gogetgen_{CONFIG.HOSTOS}_{CONFIG.HOSTARCH}.tar.gz"],
-)
-
-# See https://github.com/thought-machine/please/issues/1173
-filegroup(
-    name = "go.mod",
-    labels = ["go"],
 )
 
 CONFIG.setdefault("RELEASE_TAG_PREFIX", "v")
