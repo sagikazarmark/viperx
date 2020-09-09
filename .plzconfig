@@ -1,5 +1,5 @@
 [please]
-version = 15.2.0
+version = 15.3.1-beta.1
 
 [go]
 importPath = github.com/sagikazarmark/viperx
@@ -22,4 +22,4 @@ cmd = run ///pleasings2//tools/go:gotestsum -- --no-summary=skipped --format sho
 
 [alias "release"]
 desc = Release a new version
-cmd = run :release --
+cmd = run ///pleasings2//tools/misc:releaser --
