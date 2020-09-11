@@ -9,7 +9,7 @@ passUnsafeEnv = VAULT_ADDR
 passUnsafeEnv = VAULT_TOKEN
 
 [buildconfig]
-golangci-lint-version = 1.30.0
+golangci-lint-version = 1.31.0
 gotestsum-version = 0.5.3
 
 [alias "lint"]
