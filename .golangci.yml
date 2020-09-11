@@ -1,6 +1,8 @@
 linters-settings:
+    gci:
+        local-prefixes: github.com/sagikazarmark/viperx
     golint:
-        min-confidence: 0.1
+        min-confidence: 0
     goimports:
         local-prefixes: github.com/sagikazarmark/viperx
 
