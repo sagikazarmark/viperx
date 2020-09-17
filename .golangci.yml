@@ -1,10 +1,10 @@
 linters-settings:
     gci:
         local-prefixes: github.com/sagikazarmark/viperx
-    golint:
-        min-confidence: 0
     goimports:
         local-prefixes: github.com/sagikazarmark/viperx
+    golint:
+        min-confidence: 0
 
 linters:
     disable-all: true
