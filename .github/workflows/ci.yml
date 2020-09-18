@@ -57,7 +57,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Test
-        run: ./pleasew $PLZ_ARGS test2
+        run: ./pleasew $PLZ_ARGS gotest
         env:
           VAULT_ADDR: http://0.0.0.0:${{ job.services.vault.ports['8200'] }}
           VAULT_TOKEN: root
