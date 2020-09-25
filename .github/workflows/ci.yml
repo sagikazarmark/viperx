@@ -7,26 +7,6 @@ on:
   pull_request:
 
 jobs:
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    env:
-      GOFLAGS: -mod=readonly
-      GOPROXY: https://proxy.golang.org
-      PLZ_ARGS: -p
-
-    steps:
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.15
-
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Lint
-        run: ./pleasew $PLZ_ARGS lint
-
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -53,6 +33,9 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
 
+      - name: Set Please overrides
+        run: echo "::set-env name=PLZ_OVERRIDES::build.path:$PATH"
+
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -69,12 +52,32 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: plz-out/log/coverage.txt
 
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    env:
+      GOFLAGS: -mod=readonly
+      GOPROXY: https://proxy.golang.org
+      PLZ_ARGS: -p
+
+    steps:
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.15
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Lint
+        run: ./pleasew $PLZ_ARGS lint
+
   experimental:
     name: Build (Please experimental)
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go: ['1.13', '1.14', '1.15']
+        go: ['1.14', '1.15']
     env:
       GOFLAGS: -mod=readonly
       GOPROXY: https://proxy.golang.org
@@ -94,6 +97,9 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: ${{ matrix.go }}
+
+      - name: Set Please overrides
+        run: echo "::set-env name=PLZ_OVERRIDES::build.path:$PATH"
 
       - name: Checkout code
         uses: actions/checkout@v2

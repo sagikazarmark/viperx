@@ -1,5 +1,5 @@
 [please]
-version = 15.4.0
+version = 15.5.0
 
 [go]
 importPath = github.com/sagikazarmark/viperx
@@ -11,6 +11,10 @@ passUnsafeEnv = VAULT_TOKEN
 [buildconfig]
 golangci-lint-version = 1.31.0
 gotestsum-version = 0.5.3
+
+[alias "godeps"]
+desc = Generate third-party dependency rules for a Go project
+cmd = run ///pleasegomod//:gogetgen -- -dir third_party/go -clean -genpkg -subinclude "///pleasegomod//:build_defs"
 
 [alias "lint"]
 desc = Runs linters for this repo
