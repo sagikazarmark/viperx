@@ -39,8 +39,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Build
+        run: ./pleasew $PLZ_ARGS build //...
+
       - name: Test
-        run: ./pleasew $PLZ_ARGS gotest
+        run: |
+          ./pleasew $PLZ_ARGS test //...
+          ./pleasew $PLZ_ARGS gotest
         env:
           VAULT_ADDR: http://0.0.0.0:${{ job.services.vault.ports['8200'] }}
           VAULT_TOKEN: root
