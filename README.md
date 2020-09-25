@@ -66,6 +66,17 @@ func main() {
 - [ ] Add a friendly (declarative?) API for defining configuration
 
 
+## Development
+
+1. Clone the repository
+1. Make changes on a new branch
+1. Run
+    - `./pleasew build`
+    - `./pleasew lint`
+    - `./pleasew test`
+1. Commit, push and open PR
+
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
