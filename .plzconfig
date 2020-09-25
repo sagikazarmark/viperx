@@ -1,5 +1,5 @@
 [please]
-version = 15.4.0
+version = 15.5.0
 
 [go]
 importPath = github.com/sagikazarmark/viperx
