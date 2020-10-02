@@ -16,7 +16,6 @@ jobs:
     env:
       GOFLAGS: -mod=readonly
       GOPROXY: https://proxy.golang.org
-      PLZ_ARGS: -p
 
     services:
       vault:
@@ -33,21 +32,26 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
 
-      - name: Set Please overrides
-        run: echo "::set-env name=PLZ_OVERRIDES::build.path:$PATH"
-
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up Please
+        uses: sagikazarmark/setup-please-action@v0
+        with:
+          save-logs: 'true'
+        env:
+          # See https://github.com/sagikazarmark/setup-please-action/issues/6
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+
       # Disabled until experimental features are finalized
       # - name: Build
-      #   run: ./pleasew $PLZ_ARGS build //...
+      #   run: plz build //...
 
       - name: Test
         run: |
           # Disabled until experimental features are finalized
-          # ./pleasew $PLZ_ARGS test //...
-          ./pleasew $PLZ_ARGS gotest
+          # plz test //...
+          plz gotest
         env:
           VAULT_ADDR: http://0.0.0.0:${{ job.services.vault.ports['8200'] }}
           VAULT_TOKEN: root
@@ -65,7 +69,6 @@ jobs:
     env:
       GOFLAGS: -mod=readonly
       GOPROXY: https://proxy.golang.org
-      PLZ_ARGS: -p
 
     steps:
       - name: Set up Go
@@ -73,14 +76,16 @@ jobs:
         with:
           go-version: 1.15
 
-      - name: Set Please overrides
-        run: echo "::set-env name=PLZ_OVERRIDES::build.path:$PATH"
-
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up Please
+        uses: sagikazarmark/setup-please-action@v0
+        with:
+          save-logs: 'true'
+
       - name: Lint
-        run: ./pleasew $PLZ_ARGS lint
+        run: plz lint
 
   experimental:
     name: Build (Please experimental)
@@ -91,7 +96,6 @@ jobs:
     env:
       GOFLAGS: -mod=readonly
       GOPROXY: https://proxy.golang.org
-      PLZ_ARGS: -p --profile experimental
 
     services:
       vault:
@@ -108,25 +112,25 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
 
-      - name: Set Please overrides
-        run: echo "::set-env name=PLZ_OVERRIDES::build.path:$PATH"
-
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up Please
+        uses: sagikazarmark/setup-please-action@v0
+        with:
+          profile: experimental
+          save-logs: 'true'
+        env:
+          # See https://github.com/sagikazarmark/setup-please-action/issues/6
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+
       - name: Build
-        run: ./pleasew $PLZ_ARGS build ./...
+        run: plz build ./...
 
       - name: Test
-        run: ./pleasew $PLZ_ARGS test ./...
+        run: plz test ./...
         env:
           VAULT_ADDR: http://0.0.0.0:${{ job.services.vault.ports['8200'] }}
           VAULT_TOKEN: root
-
-      - name: Save Please log output
-        uses: actions/upload-artifact@v1
-        with:
-          name: build-log
-          path: plz-out/log
 
       # TODO: upload coverage
