@@ -68,7 +68,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GOFLAGS: -mod=readonly
-      GOPROXY: https://proxy.golang.org
 
     steps:
       - name: Set up Go
