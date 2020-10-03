@@ -26,13 +26,11 @@ jobs:
 
       - name: Set up Please
         uses: sagikazarmark/setup-please-action@v0
-        with:
-          save-logs: 'true'
 
       - name: Build
         run: go build ./...
 
       - name: Analyze
-        run: ./pleasew $PLZ_ARGS run ///pleasings2//tools/misc:fossa -- analyze
+        run: plz run ///pleasings2//tools/misc:fossa -- analyze
         env:
           FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
