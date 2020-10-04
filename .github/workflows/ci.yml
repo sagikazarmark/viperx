@@ -38,10 +38,6 @@ jobs:
       - name: Set up Please
         uses: sagikazarmark/setup-please-action@v0
 
-      # Disabled until experimental features are finalized
-      # - name: Build
-      #   run: plz build //...
-
       - name: Test
         run: |
           # Disabled until experimental features are finalized
@@ -111,9 +107,6 @@ jobs:
         uses: sagikazarmark/setup-please-action@v0
         with:
           profile: experimental
-
-      - name: Build
-        run: plz build ./...
 
       - name: Test
         run: plz test ./...
