@@ -3,9 +3,9 @@ subinclude("///pleasegomod//:build_defs")
 go_module_download(
     name = "errors",
     module = "emperror.dev/errors",
-    sum = "h1:vf0gZ0j9BJCXQYm0M21DPKeXy9PUjvX1YHXhNzIsqOY=",
+    sum = "h1:4lycVEx0sdJkwDUfQ9pdu6SR0x7rgympt5f4+ok8jDk=",
     tag = "download",
-    version = "v0.7.0",
+    version = "v0.8.0",
     visibility = ["//third_party/go/emperror.dev/errors/..."],
 )
 

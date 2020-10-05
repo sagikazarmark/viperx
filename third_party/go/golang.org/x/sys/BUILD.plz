@@ -3,8 +3,8 @@ subinclude("///pleasegomod//:build_defs")
 go_module_download(
     name = "sys",
     module = "golang.org/x/sys",
-    sum = "h1:HmbHVPwrPEKPGLAcHSrMe6+hqSUlvZU0rab6x5EXfGU=",
+    sum = "h1:5/PjkGUjvEU5Gl6BxmvKRPpqo2uNMv4rcHBMwzk/st8=",
     tag = "download",
-    version = "v0.0.0-20191022100944-742c48ecaeb7",
+    version = "v0.0.0-20200622214017-ed371f2e16b4",
     visibility = ["//third_party/go/golang.org/x/sys/..."],
 )

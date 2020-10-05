@@ -10,6 +10,7 @@ fileexport(
         "rest/transport.go",
         "rest/url_utils.go",
         "rest/urlbackoff.go",
+        "rest/warnings.go",
         "rest/zz_generated.deepcopy.go",
     ],
     tag = "go_source",
@@ -42,6 +43,6 @@ go_library(
         "//third_party/go/k8s.io/client-go/transport",
         "//third_party/go/k8s.io/client-go/util/cert",
         "//third_party/go/k8s.io/client-go/util/flowcontrol",
-        "//third_party/go/k8s.io/klog",
+        "//third_party/go/k8s.io/klog/v2",
     ],
 )

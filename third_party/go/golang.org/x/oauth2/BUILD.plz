@@ -3,9 +3,9 @@ subinclude("///pleasegomod//:build_defs")
 go_module_download(
     name = "oauth2",
     module = "golang.org/x/oauth2",
-    sum = "h1:SVwTIAaPC2U/AvvLNZ2a7OVsmBpC8L5BlwK1whH3hm0=",
+    sum = "h1:pE8b58s1HRDMi8RDc79m0HISf9D4TzseP40cEA6IGfs=",
     tag = "download",
-    version = "v0.0.0-20190604053449-0f29369cfe45",
+    version = "v0.0.0-20191202225959-858c2ad4c8b6",
     visibility = ["//third_party/go/golang.org/x/oauth2/..."],
 )
 

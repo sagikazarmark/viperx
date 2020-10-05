@@ -3,9 +3,9 @@ subinclude("///pleasegomod//:build_defs")
 go_module_download(
     name = "multierr",
     module = "go.uber.org/multierr",
-    sum = "h1:f3WCSC2KzAcBXGATIxAB1E2XuCpNU255wNKZ505qi3E=",
+    sum = "h1:y6IPFStTAIT5Ytl7/XYmHvzXQ7S3g/IeZW9hyZ5thw4=",
     tag = "download",
-    version = "v1.4.0",
+    version = "v1.6.0",
     visibility = ["//third_party/go/go.uber.org/multierr/..."],
 )
 
@@ -14,7 +14,6 @@ fileexport(
     srcs = [
         "error.go",
         "go113.go",
-        "tools.go",
     ],
     tag = "go_source",
     deps = [":_multierr#download"],

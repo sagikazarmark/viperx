@@ -12,6 +12,7 @@ fileexport(
         "unicode/bidi/prop.go",
         "unicode/bidi/tables10.0.0.go",
         "unicode/bidi/tables11.0.0.go",
+        "unicode/bidi/tables12.0.0.go",
         "unicode/bidi/tables9.0.0.go",
         "unicode/bidi/trieval.go",
     ],
