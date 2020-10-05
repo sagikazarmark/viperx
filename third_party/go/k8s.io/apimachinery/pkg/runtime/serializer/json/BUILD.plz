@@ -24,7 +24,7 @@ go_library(
         "//third_party/go/k8s.io/apimachinery/pkg/runtime/serializer/recognizer",
         "//third_party/go/k8s.io/apimachinery/pkg/util/framer",
         "//third_party/go/k8s.io/apimachinery/pkg/util/yaml",
-        "//third_party/go/k8s.io/klog",
+        "//third_party/go/k8s.io/klog/v2",
         "//third_party/go/sigs.k8s.io/yaml",
     ],
 )

@@ -3,8 +3,8 @@ subinclude("///pleasegomod//:build_defs")
 go_module_download(
     name = "apimachinery",
     module = "k8s.io/apimachinery",
-    sum = "h1:RtFHnfGNfd1N0LeSrKCUznz5xtUP1elRGvHJbL3Ntag=",
+    sum = "h1:5Gy9vQpAGTKHPVOh5c4plE274X8D/6cuEiTO2zve7tc=",
     tag = "download",
-    version = "v0.18.6",
+    version = "v0.19.2",
     visibility = ["//third_party/go/k8s.io/apimachinery/..."],
 )

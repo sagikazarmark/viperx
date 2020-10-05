@@ -3,8 +3,8 @@ subinclude("///pleasegomod//:build_defs")
 go_module_download(
     name = "utils",
     module = "k8s.io/utils",
-    sum = "h1:d4vVOjXm687F1iLSP2q3lyPPuyvTUt3aVoBpi2DqRsU=",
+    sum = "h1:uJmqzgNWG7XyClnU/mLPBWwfKKF1K8Hf8whTseBgJcg=",
     tag = "download",
-    version = "v0.0.0-20200324210504-a9aa75ae1b89",
+    version = "v0.0.0-20200729134348-d5654de09c73",
     visibility = ["//third_party/go/k8s.io/utils/..."],
 )

@@ -22,6 +22,6 @@ go_library(
     deps = [
         "//third_party/go/golang.org/x/net/http2",
         "//third_party/go/k8s.io/apimachinery/pkg/util/sets",
-        "//third_party/go/k8s.io/klog",
+        "//third_party/go/k8s.io/klog/v2",
     ],
 )

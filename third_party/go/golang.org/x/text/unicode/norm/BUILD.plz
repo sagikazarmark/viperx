@@ -12,6 +12,7 @@ fileexport(
         "unicode/norm/readwriter.go",
         "unicode/norm/tables10.0.0.go",
         "unicode/norm/tables11.0.0.go",
+        "unicode/norm/tables12.0.0.go",
         "unicode/norm/tables9.0.0.go",
         "unicode/norm/transform.go",
         "unicode/norm/trie.go",

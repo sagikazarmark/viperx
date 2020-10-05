@@ -1,0 +1,10 @@
+subinclude("///pleasegomod//:build_defs")
+
+go_module_download(
+    name = "v4",
+    module = "sigs.k8s.io/structured-merge-diff/v4",
+    sum = "h1:YXTMot5Qz/X1iBRJhAt+vI+HVttY0WkSqqhKxQ0xVbA=",
+    tag = "download",
+    version = "v4.0.1",
+    visibility = ["//third_party/go/sigs.k8s.io/structured-merge-diff/v4/..."],
+)

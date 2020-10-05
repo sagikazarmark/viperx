@@ -19,6 +19,6 @@ go_library(
     deps = [
         "//third_party/go/github.com/gogo/protobuf/proto",
         "//third_party/go/github.com/google/gofuzz",
-        "//third_party/go/k8s.io/klog",
+        "//third_party/go/k8s.io/klog/v2",
     ],
 )

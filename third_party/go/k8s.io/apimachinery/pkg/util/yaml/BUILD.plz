@@ -14,7 +14,7 @@ go_library(
     import_path = "k8s.io/apimachinery/pkg/util/yaml",
     visibility = ["PUBLIC"],
     deps = [
-        "//third_party/go/k8s.io/klog",
+        "//third_party/go/k8s.io/klog/v2",
         "//third_party/go/sigs.k8s.io/yaml",
     ],
 )

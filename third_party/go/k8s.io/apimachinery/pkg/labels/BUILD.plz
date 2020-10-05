@@ -22,6 +22,6 @@ go_library(
         "//third_party/go/k8s.io/apimachinery/pkg/selection",
         "//third_party/go/k8s.io/apimachinery/pkg/util/sets",
         "//third_party/go/k8s.io/apimachinery/pkg/util/validation",
-        "//third_party/go/k8s.io/klog",
+        "//third_party/go/k8s.io/klog/v2",
     ],
 )
