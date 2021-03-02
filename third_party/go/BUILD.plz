@@ -1,0 +1,1821 @@
+config_setting(
+    name = "__config_linux_amd64",
+    values = {
+        "os": "linux",
+        "cpu": "amd64",
+    },
+)
+
+config_setting(
+    name = "__config_darwin_amd64",
+    values = {
+        "os": "darwin",
+        "cpu": "amd64",
+    },
+)
+
+go_mod_download(
+    name = "emperror.dev__errors",
+    _tag = "download",
+    module = "emperror.dev/errors",
+    version = "v0.8.0",
+)
+
+go_module(
+    name = "emperror.dev__errors",
+    download = ":_emperror.dev__errors#download",
+    install = ["."],
+    module = "emperror.dev/errors",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__pkg__errors",
+        ":go.uber.org__multierr",
+    ],
+)
+
+go_mod_download(
+    name = "github.com__banzaicloud__bank-vaults__pkg__sdk",
+    _tag = "download",
+    module = "github.com/banzaicloud/bank-vaults/pkg/sdk",
+    version = "v0.6.0",
+)
+
+go_module(
+    name = "github.com__banzaicloud__bank-vaults__pkg__sdk__vault",
+    download = ":_github.com__banzaicloud__bank-vaults__pkg__sdk#download",
+    install = ["vault"],
+    module = "github.com/banzaicloud/bank-vaults/pkg/sdk",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":emperror.dev__errors",
+        ":github.com__fsnotify__fsnotify",
+        ":github.com__hashicorp__vault__api",
+        ":k8s.io__client-go__rest",
+    ],
+)
+
+go_mod_download(
+    name = "github.com__davecgh__go-spew",
+    _tag = "download",
+    module = "github.com/davecgh/go-spew",
+    version = "v1.1.1",
+)
+
+go_module(
+    name = "github.com__davecgh__go-spew__spew",
+    download = ":_github.com__davecgh__go-spew#download",
+    install = ["spew"],
+    module = "github.com/davecgh/go-spew",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__fsnotify__fsnotify",
+    _tag = "download",
+    module = "github.com/fsnotify/fsnotify",
+    version = "v1.4.9",
+)
+
+go_module(
+    name = "github.com__fsnotify__fsnotify",
+    download = ":_github.com__fsnotify__fsnotify#download",
+    install = ["."],
+    module = "github.com/fsnotify/fsnotify",
+    visibility = ["PUBLIC"],
+    deps = [":golang.org__x__sys__unix"],
+)
+
+go_mod_download(
+    name = "github.com__go-logr__logr",
+    _tag = "download",
+    module = "github.com/go-logr/logr",
+    version = "v0.2.0",
+)
+
+go_module(
+    name = "github.com__go-logr__logr",
+    download = ":_github.com__go-logr__logr#download",
+    install = ["."],
+    module = "github.com/go-logr/logr",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__gogo__protobuf",
+    _tag = "download",
+    module = "github.com/gogo/protobuf",
+    version = "v1.3.1",
+)
+
+go_module(
+    name = "github.com__gogo__protobuf__proto",
+    download = ":_github.com__gogo__protobuf#download",
+    install = ["proto"],
+    module = "github.com/gogo/protobuf",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "github.com__gogo__protobuf__sortkeys",
+    download = ":_github.com__gogo__protobuf#download",
+    install = ["sortkeys"],
+    module = "github.com/gogo/protobuf",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__golang__snappy",
+    _tag = "download",
+    module = "github.com/golang/snappy",
+    version = "v0.0.1",
+)
+
+go_module(
+    name = "github.com__golang__snappy",
+    download = ":_github.com__golang__snappy#download",
+    install = ["."],
+    module = "github.com/golang/snappy",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__google__gofuzz",
+    _tag = "download",
+    module = "github.com/google/gofuzz",
+    version = "v1.1.0",
+)
+
+go_module(
+    name = "github.com__google__gofuzz",
+    download = ":_github.com__google__gofuzz#download",
+    install = ["."],
+    module = "github.com/google/gofuzz",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__hashicorp__errwrap",
+    _tag = "download",
+    module = "github.com/hashicorp/errwrap",
+    version = "v1.0.0",
+)
+
+go_module(
+    name = "github.com__hashicorp__errwrap",
+    download = ":_github.com__hashicorp__errwrap#download",
+    install = ["."],
+    module = "github.com/hashicorp/errwrap",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__hashicorp__go-cleanhttp",
+    _tag = "download",
+    module = "github.com/hashicorp/go-cleanhttp",
+    version = "v0.5.1",
+)
+
+go_module(
+    name = "github.com__hashicorp__go-cleanhttp",
+    download = ":_github.com__hashicorp__go-cleanhttp#download",
+    install = ["."],
+    module = "github.com/hashicorp/go-cleanhttp",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__hashicorp__go-multierror",
+    _tag = "download",
+    module = "github.com/hashicorp/go-multierror",
+    version = "v1.0.0",
+)
+
+go_module(
+    name = "github.com__hashicorp__go-multierror",
+    download = ":_github.com__hashicorp__go-multierror#download",
+    install = ["."],
+    module = "github.com/hashicorp/go-multierror",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__hashicorp__errwrap"],
+)
+
+go_mod_download(
+    name = "github.com__hashicorp__go-retryablehttp",
+    _tag = "download",
+    module = "github.com/hashicorp/go-retryablehttp",
+    version = "v0.5.4",
+)
+
+go_module(
+    name = "github.com__hashicorp__go-retryablehttp",
+    download = ":_github.com__hashicorp__go-retryablehttp#download",
+    install = ["."],
+    module = "github.com/hashicorp/go-retryablehttp",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__hashicorp__go-cleanhttp"],
+)
+
+go_mod_download(
+    name = "github.com__hashicorp__go-rootcerts",
+    _tag = "download",
+    module = "github.com/hashicorp/go-rootcerts",
+    version = "v1.0.1",
+)
+
+go_module(
+    name = "github.com__hashicorp__go-rootcerts",
+    download = ":_github.com__hashicorp__go-rootcerts#download",
+    install = ["."],
+    module = "github.com/hashicorp/go-rootcerts",
+    visibility = ["PUBLIC"],
+    deps = select({
+        ":__config_darwin_amd64": [":github.com__mitchellh__go-homedir"],
+        ":__config_linux_amd64": [],
+        "default": [],
+    }),
+)
+
+go_mod_download(
+    name = "github.com__hashicorp__go-sockaddr",
+    _tag = "download",
+    module = "github.com/hashicorp/go-sockaddr",
+    version = "v1.0.2",
+)
+
+go_module(
+    name = "github.com__hashicorp__go-sockaddr",
+    download = ":_github.com__hashicorp__go-sockaddr#download",
+    install = ["."],
+    module = "github.com/hashicorp/go-sockaddr",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__hashicorp__hcl",
+    _tag = "download",
+    module = "github.com/hashicorp/hcl",
+    version = "v1.0.0",
+)
+
+go_module(
+    name = "github.com__hashicorp__hcl",
+    download = ":_github.com__hashicorp__hcl#download",
+    install = ["."],
+    module = "github.com/hashicorp/hcl",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__hashicorp__hcl__hcl__ast",
+        ":github.com__hashicorp__hcl__hcl__parser",
+        ":github.com__hashicorp__hcl__hcl__token",
+        ":github.com__hashicorp__hcl__json__parser",
+    ],
+)
+
+go_module(
+    name = "github.com__hashicorp__hcl__hcl__ast",
+    download = ":_github.com__hashicorp__hcl#download",
+    install = ["hcl/ast"],
+    module = "github.com/hashicorp/hcl",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__hashicorp__hcl__hcl__token"],
+)
+
+go_module(
+    name = "github.com__hashicorp__hcl__hcl__parser",
+    download = ":_github.com__hashicorp__hcl#download",
+    install = ["hcl/parser"],
+    module = "github.com/hashicorp/hcl",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__hashicorp__hcl__hcl__ast",
+        ":github.com__hashicorp__hcl__hcl__scanner",
+        ":github.com__hashicorp__hcl__hcl__token",
+    ],
+)
+
+go_module(
+    name = "github.com__hashicorp__hcl__hcl__printer",
+    download = ":_github.com__hashicorp__hcl#download",
+    install = ["hcl/printer"],
+    module = "github.com/hashicorp/hcl",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__hashicorp__hcl__hcl__ast",
+        ":github.com__hashicorp__hcl__hcl__parser",
+        ":github.com__hashicorp__hcl__hcl__token",
+    ],
+)
+
+go_module(
+    name = "github.com__hashicorp__hcl__hcl__scanner",
+    download = ":_github.com__hashicorp__hcl#download",
+    install = ["hcl/scanner"],
+    module = "github.com/hashicorp/hcl",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__hashicorp__hcl__hcl__token"],
+)
+
+go_module(
+    name = "github.com__hashicorp__hcl__hcl__strconv",
+    download = ":_github.com__hashicorp__hcl#download",
+    install = ["hcl/strconv"],
+    module = "github.com/hashicorp/hcl",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "github.com__hashicorp__hcl__hcl__token",
+    download = ":_github.com__hashicorp__hcl#download",
+    install = ["hcl/token"],
+    module = "github.com/hashicorp/hcl",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__hashicorp__hcl__hcl__strconv"],
+)
+
+go_module(
+    name = "github.com__hashicorp__hcl__json__parser",
+    download = ":_github.com__hashicorp__hcl#download",
+    install = ["json/parser"],
+    module = "github.com/hashicorp/hcl",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__hashicorp__hcl__hcl__ast",
+        ":github.com__hashicorp__hcl__hcl__token",
+        ":github.com__hashicorp__hcl__json__scanner",
+        ":github.com__hashicorp__hcl__json__token",
+    ],
+)
+
+go_module(
+    name = "github.com__hashicorp__hcl__json__scanner",
+    download = ":_github.com__hashicorp__hcl#download",
+    install = ["json/scanner"],
+    module = "github.com/hashicorp/hcl",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__hashicorp__hcl__json__token"],
+)
+
+go_module(
+    name = "github.com__hashicorp__hcl__json__token",
+    download = ":_github.com__hashicorp__hcl#download",
+    install = ["json/token"],
+    module = "github.com/hashicorp/hcl",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__hashicorp__hcl__hcl__token"],
+)
+
+go_mod_download(
+    name = "github.com__hashicorp__vault__api",
+    _tag = "download",
+    module = "github.com/hashicorp/vault/api",
+    version = "v1.0.4",
+)
+
+go_module(
+    name = "github.com__hashicorp__vault__api",
+    download = ":_github.com__hashicorp__vault__api#download",
+    install = ["."],
+    module = "github.com/hashicorp/vault/api",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__hashicorp__errwrap",
+        ":github.com__hashicorp__go-cleanhttp",
+        ":github.com__hashicorp__go-multierror",
+        ":github.com__hashicorp__go-retryablehttp",
+        ":github.com__hashicorp__go-rootcerts",
+        ":github.com__hashicorp__hcl",
+        ":github.com__hashicorp__hcl__hcl__ast",
+        ":github.com__hashicorp__vault__sdk__helper__consts",
+        ":github.com__hashicorp__vault__sdk__helper__hclutil",
+        ":github.com__hashicorp__vault__sdk__helper__jsonutil",
+        ":github.com__hashicorp__vault__sdk__helper__parseutil",
+        ":github.com__mitchellh__mapstructure",
+        ":golang.org__x__net__http2",
+        ":golang.org__x__time__rate",
+        ":gopkg.in__square__go-jose.v2__jwt",
+    ],
+)
+
+go_mod_download(
+    name = "github.com__hashicorp__vault__sdk",
+    _tag = "download",
+    module = "github.com/hashicorp/vault/sdk",
+    version = "v0.1.13",
+)
+
+go_module(
+    name = "github.com__hashicorp__vault__sdk__helper__compressutil",
+    download = ":_github.com__hashicorp__vault__sdk#download",
+    install = ["helper/compressutil"],
+    module = "github.com/hashicorp/vault/sdk",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__golang__snappy",
+        ":github.com__hashicorp__errwrap",
+        ":github.com__pierrec__lz4",
+    ],
+)
+
+go_module(
+    name = "github.com__hashicorp__vault__sdk__helper__consts",
+    download = ":_github.com__hashicorp__vault__sdk#download",
+    install = ["helper/consts"],
+    module = "github.com/hashicorp/vault/sdk",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "github.com__hashicorp__vault__sdk__helper__hclutil",
+    download = ":_github.com__hashicorp__vault__sdk#download",
+    install = ["helper/hclutil"],
+    module = "github.com/hashicorp/vault/sdk",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__hashicorp__go-multierror",
+        ":github.com__hashicorp__hcl__hcl__ast",
+    ],
+)
+
+go_module(
+    name = "github.com__hashicorp__vault__sdk__helper__jsonutil",
+    download = ":_github.com__hashicorp__vault__sdk#download",
+    install = ["helper/jsonutil"],
+    module = "github.com/hashicorp/vault/sdk",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__hashicorp__errwrap",
+        ":github.com__hashicorp__vault__sdk__helper__compressutil",
+    ],
+)
+
+go_module(
+    name = "github.com__hashicorp__vault__sdk__helper__parseutil",
+    download = ":_github.com__hashicorp__vault__sdk#download",
+    install = ["helper/parseutil"],
+    module = "github.com/hashicorp/vault/sdk",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__hashicorp__errwrap",
+        ":github.com__hashicorp__go-sockaddr",
+        ":github.com__hashicorp__vault__sdk__helper__strutil",
+        ":github.com__mitchellh__mapstructure",
+    ],
+)
+
+go_module(
+    name = "github.com__hashicorp__vault__sdk__helper__strutil",
+    download = ":_github.com__hashicorp__vault__sdk#download",
+    install = ["helper/strutil"],
+    module = "github.com/hashicorp/vault/sdk",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__hashicorp__errwrap",
+        ":github.com__ryanuber__go-glob",
+    ],
+)
+
+go_mod_download(
+    name = "github.com__json-iterator__go",
+    _tag = "download",
+    module = "github.com/json-iterator/go",
+    version = "v1.1.10",
+)
+
+go_module(
+    name = "github.com__json-iterator__go",
+    download = ":_github.com__json-iterator__go#download",
+    install = ["."],
+    module = "github.com/json-iterator/go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__modern-go__concurrent",
+        ":github.com__modern-go__reflect2",
+    ],
+)
+
+go_mod_download(
+    name = "github.com__magiconair__properties",
+    _tag = "download",
+    module = "github.com/magiconair/properties",
+    version = "v1.8.1",
+)
+
+go_module(
+    name = "github.com__magiconair__properties",
+    download = ":_github.com__magiconair__properties#download",
+    install = ["."],
+    module = "github.com/magiconair/properties",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__mitchellh__go-homedir",
+    _tag = "download",
+    module = "github.com/mitchellh/go-homedir",
+    version = "v1.1.0",
+)
+
+if is_platform(
+    arch = ["amd64"],
+    os = ["darwin"],
+):
+    go_module(name = "github.com__mitchellh__go-homedir", download = ":_github.com__mitchellh__go-homedir#download", install = ["."], module = "github.com/mitchellh/go-homedir", visibility = ["PUBLIC"], deps = [])
+
+go_mod_download(
+    name = "github.com__mitchellh__mapstructure",
+    _tag = "download",
+    module = "github.com/mitchellh/mapstructure",
+    version = "v1.1.2",
+)
+
+go_module(
+    name = "github.com__mitchellh__mapstructure",
+    download = ":_github.com__mitchellh__mapstructure#download",
+    install = ["."],
+    module = "github.com/mitchellh/mapstructure",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__modern-go__concurrent",
+    _tag = "download",
+    module = "github.com/modern-go/concurrent",
+    version = "v0.0.0-20180306012644-bacd9c7ef1dd",
+)
+
+go_module(
+    name = "github.com__modern-go__concurrent",
+    download = ":_github.com__modern-go__concurrent#download",
+    install = ["."],
+    module = "github.com/modern-go/concurrent",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__modern-go__reflect2",
+    _tag = "download",
+    module = "github.com/modern-go/reflect2",
+    version = "v1.0.1",
+)
+
+go_module(
+    name = "github.com__modern-go__reflect2",
+    download = ":_github.com__modern-go__reflect2#download",
+    install = ["."],
+    module = "github.com/modern-go/reflect2",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__modern-go__concurrent"],
+)
+
+go_mod_download(
+    name = "github.com__pelletier__go-toml",
+    _tag = "download",
+    module = "github.com/pelletier/go-toml",
+    version = "v1.2.0",
+)
+
+go_module(
+    name = "github.com__pelletier__go-toml",
+    download = ":_github.com__pelletier__go-toml#download",
+    install = ["."],
+    module = "github.com/pelletier/go-toml",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__pierrec__lz4",
+    _tag = "download",
+    module = "github.com/pierrec/lz4",
+    version = "v2.0.5+incompatible",
+)
+
+go_module(
+    name = "github.com__pierrec__lz4",
+    download = ":_github.com__pierrec__lz4#download",
+    install = ["."],
+    module = "github.com/pierrec/lz4",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__pierrec__lz4__internal__xxh32"],
+)
+
+go_module(
+    name = "github.com__pierrec__lz4__internal__xxh32",
+    download = ":_github.com__pierrec__lz4#download",
+    install = ["internal/xxh32"],
+    module = "github.com/pierrec/lz4",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__pkg__errors",
+    _tag = "download",
+    module = "github.com/pkg/errors",
+    version = "v0.9.1",
+)
+
+go_module(
+    name = "github.com__pkg__errors",
+    download = ":_github.com__pkg__errors#download",
+    install = ["."],
+    module = "github.com/pkg/errors",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__ryanuber__go-glob",
+    _tag = "download",
+    module = "github.com/ryanuber/go-glob",
+    version = "v1.0.0",
+)
+
+go_module(
+    name = "github.com__ryanuber__go-glob",
+    download = ":_github.com__ryanuber__go-glob#download",
+    install = ["."],
+    module = "github.com/ryanuber/go-glob",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__spf13__afero",
+    _tag = "download",
+    module = "github.com/spf13/afero",
+    version = "v1.2.2",
+)
+
+go_module(
+    name = "github.com__spf13__afero",
+    download = ":_github.com__spf13__afero#download",
+    install = ["."],
+    module = "github.com/spf13/afero",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__spf13__afero__mem",
+        ":golang.org__x__text__transform",
+        ":golang.org__x__text__unicode__norm",
+    ],
+)
+
+go_module(
+    name = "github.com__spf13__afero__mem",
+    download = ":_github.com__spf13__afero#download",
+    install = ["mem"],
+    module = "github.com/spf13/afero",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__spf13__cast",
+    _tag = "download",
+    module = "github.com/spf13/cast",
+    version = "v1.3.0",
+)
+
+go_module(
+    name = "github.com__spf13__cast",
+    download = ":_github.com__spf13__cast#download",
+    install = ["."],
+    module = "github.com/spf13/cast",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__spf13__jwalterweatherman",
+    _tag = "download",
+    module = "github.com/spf13/jwalterweatherman",
+    version = "v1.0.0",
+)
+
+go_module(
+    name = "github.com__spf13__jwalterweatherman",
+    download = ":_github.com__spf13__jwalterweatherman#download",
+    install = ["."],
+    module = "github.com/spf13/jwalterweatherman",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__spf13__pflag",
+    _tag = "download",
+    module = "github.com/spf13/pflag",
+    version = "v1.0.5",
+)
+
+go_module(
+    name = "github.com__spf13__pflag",
+    download = ":_github.com__spf13__pflag#download",
+    install = ["."],
+    module = "github.com/spf13/pflag",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "github.com__spf13__viper",
+    _tag = "download",
+    module = "github.com/spf13/viper",
+    version = "v1.7.1",
+)
+
+go_module(
+    name = "github.com__spf13__viper",
+    download = ":_github.com__spf13__viper#download",
+    install = ["."],
+    module = "github.com/spf13/viper",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__fsnotify__fsnotify",
+        ":github.com__hashicorp__hcl",
+        ":github.com__hashicorp__hcl__hcl__printer",
+        ":github.com__magiconair__properties",
+        ":github.com__mitchellh__mapstructure",
+        ":github.com__pelletier__go-toml",
+        ":github.com__spf13__afero",
+        ":github.com__spf13__cast",
+        ":github.com__spf13__jwalterweatherman",
+        ":github.com__spf13__pflag",
+        ":github.com__subosito__gotenv",
+        ":gopkg.in__ini.v1",
+        ":gopkg.in__yaml.v2",
+    ],
+)
+
+go_mod_download(
+    name = "github.com__subosito__gotenv",
+    _tag = "download",
+    module = "github.com/subosito/gotenv",
+    version = "v1.2.0",
+)
+
+go_module(
+    name = "github.com__subosito__gotenv",
+    download = ":_github.com__subosito__gotenv#download",
+    install = ["."],
+    module = "github.com/subosito/gotenv",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "go.uber.org__atomic",
+    _tag = "download",
+    module = "go.uber.org/atomic",
+    version = "v1.7.0",
+)
+
+go_module(
+    name = "go.uber.org__atomic",
+    download = ":_go.uber.org__atomic#download",
+    install = ["."],
+    module = "go.uber.org/atomic",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "go.uber.org__multierr",
+    _tag = "download",
+    module = "go.uber.org/multierr",
+    version = "v1.6.0",
+)
+
+go_module(
+    name = "go.uber.org__multierr",
+    download = ":_go.uber.org__multierr#download",
+    install = ["."],
+    module = "go.uber.org/multierr",
+    visibility = ["PUBLIC"],
+    deps = [":go.uber.org__atomic"],
+)
+
+go_mod_download(
+    name = "golang.org__x__crypto",
+    _tag = "download",
+    module = "golang.org/x/crypto",
+    version = "v0.0.0-20200622213623-75b288015ac9",
+)
+
+go_module(
+    name = "golang.org__x__crypto__ed25519",
+    download = ":_golang.org__x__crypto#download",
+    install = ["ed25519"],
+    module = "golang.org/x/crypto",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "golang.org__x__crypto__pbkdf2",
+    download = ":_golang.org__x__crypto#download",
+    install = ["pbkdf2"],
+    module = "golang.org/x/crypto",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "golang.org__x__crypto__ssh__terminal",
+    download = ":_golang.org__x__crypto#download",
+    install = ["ssh/terminal"],
+    module = "golang.org/x/crypto",
+    visibility = ["PUBLIC"],
+    deps = [":golang.org__x__sys__unix"],
+)
+
+go_mod_download(
+    name = "golang.org__x__net",
+    _tag = "download",
+    module = "golang.org/x/net",
+    version = "v0.0.0-20200707034311-ab3426394381",
+)
+
+go_module(
+    name = "golang.org__x__net__context__ctxhttp",
+    download = ":_golang.org__x__net#download",
+    install = ["context/ctxhttp"],
+    module = "golang.org/x/net",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "golang.org__x__net__http__httpguts",
+    download = ":_golang.org__x__net#download",
+    install = ["http/httpguts"],
+    module = "golang.org/x/net",
+    visibility = ["PUBLIC"],
+    deps = [":golang.org__x__net__idna"],
+)
+
+go_module(
+    name = "golang.org__x__net__http2",
+    download = ":_golang.org__x__net#download",
+    install = ["http2"],
+    module = "golang.org/x/net",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":golang.org__x__net__http2__hpack",
+        ":golang.org__x__net__http__httpguts",
+        ":golang.org__x__net__idna",
+    ],
+)
+
+go_module(
+    name = "golang.org__x__net__http2__hpack",
+    download = ":_golang.org__x__net#download",
+    install = ["http2/hpack"],
+    module = "golang.org/x/net",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "golang.org__x__net__idna",
+    download = ":_golang.org__x__net#download",
+    install = ["idna"],
+    module = "golang.org/x/net",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":golang.org__x__text__secure__bidirule",
+        ":golang.org__x__text__unicode__bidi",
+        ":golang.org__x__text__unicode__norm",
+    ],
+)
+
+go_mod_download(
+    name = "golang.org__x__oauth2",
+    _tag = "download",
+    module = "golang.org/x/oauth2",
+    version = "v0.0.0-20191202225959-858c2ad4c8b6",
+)
+
+go_module(
+    name = "golang.org__x__oauth2",
+    download = ":_golang.org__x__oauth2#download",
+    install = ["."],
+    module = "golang.org/x/oauth2",
+    visibility = ["PUBLIC"],
+    deps = [":golang.org__x__oauth2__internal"],
+)
+
+go_module(
+    name = "golang.org__x__oauth2__internal",
+    download = ":_golang.org__x__oauth2#download",
+    install = ["internal"],
+    module = "golang.org/x/oauth2",
+    visibility = ["PUBLIC"],
+    deps = [":golang.org__x__net__context__ctxhttp"],
+)
+
+go_mod_download(
+    name = "golang.org__x__sys",
+    _tag = "download",
+    module = "golang.org/x/sys",
+    version = "v0.0.0-20200622214017-ed371f2e16b4",
+)
+
+go_module(
+    name = "golang.org__x__sys__internal__unsafeheader",
+    download = ":_golang.org__x__sys#download",
+    install = ["internal/unsafeheader"],
+    module = "golang.org/x/sys",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "golang.org__x__sys__unix",
+    download = ":_golang.org__x__sys#download",
+    install = ["unix"],
+    module = "golang.org/x/sys",
+    visibility = ["PUBLIC"],
+    deps = [":golang.org__x__sys__internal__unsafeheader"],
+)
+
+go_mod_download(
+    name = "golang.org__x__text",
+    _tag = "download",
+    module = "golang.org/x/text",
+    version = "v0.3.3",
+)
+
+go_module(
+    name = "golang.org__x__text__secure__bidirule",
+    download = ":_golang.org__x__text#download",
+    install = ["secure/bidirule"],
+    module = "golang.org/x/text",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":golang.org__x__text__transform",
+        ":golang.org__x__text__unicode__bidi",
+    ],
+)
+
+go_module(
+    name = "golang.org__x__text__transform",
+    download = ":_golang.org__x__text#download",
+    install = ["transform"],
+    module = "golang.org/x/text",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "golang.org__x__text__unicode__bidi",
+    download = ":_golang.org__x__text#download",
+    install = ["unicode/bidi"],
+    module = "golang.org/x/text",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "golang.org__x__text__unicode__norm",
+    download = ":_golang.org__x__text#download",
+    install = ["unicode/norm"],
+    module = "golang.org/x/text",
+    visibility = ["PUBLIC"],
+    deps = [":golang.org__x__text__transform"],
+)
+
+go_mod_download(
+    name = "golang.org__x__time",
+    _tag = "download",
+    module = "golang.org/x/time",
+    version = "v0.0.0-20191024005414-555d28b269f0",
+)
+
+go_module(
+    name = "golang.org__x__time__rate",
+    download = ":_golang.org__x__time#download",
+    install = ["rate"],
+    module = "golang.org/x/time",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "gopkg.in__inf.v0",
+    _tag = "download",
+    module = "gopkg.in/inf.v0",
+    version = "v0.9.1",
+)
+
+go_module(
+    name = "gopkg.in__inf.v0",
+    download = ":_gopkg.in__inf.v0#download",
+    install = ["."],
+    module = "gopkg.in/inf.v0",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "gopkg.in__ini.v1",
+    _tag = "download",
+    module = "gopkg.in/ini.v1",
+    version = "v1.51.0",
+)
+
+go_module(
+    name = "gopkg.in__ini.v1",
+    download = ":_gopkg.in__ini.v1#download",
+    install = ["."],
+    module = "gopkg.in/ini.v1",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "gopkg.in__square__go-jose.v2",
+    _tag = "download",
+    module = "gopkg.in/square/go-jose.v2",
+    version = "v2.3.1",
+)
+
+go_module(
+    name = "gopkg.in__square__go-jose.v2",
+    download = ":_gopkg.in__square__go-jose.v2#download",
+    install = ["."],
+    module = "gopkg.in/square/go-jose.v2",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":golang.org__x__crypto__ed25519",
+        ":golang.org__x__crypto__pbkdf2",
+        ":gopkg.in__square__go-jose.v2__cipher",
+        ":gopkg.in__square__go-jose.v2__json",
+    ],
+)
+
+go_module(
+    name = "gopkg.in__square__go-jose.v2__cipher",
+    download = ":_gopkg.in__square__go-jose.v2#download",
+    install = ["cipher"],
+    module = "gopkg.in/square/go-jose.v2",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "gopkg.in__square__go-jose.v2__json",
+    download = ":_gopkg.in__square__go-jose.v2#download",
+    install = ["json"],
+    module = "gopkg.in/square/go-jose.v2",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "gopkg.in__square__go-jose.v2__jwt",
+    download = ":_gopkg.in__square__go-jose.v2#download",
+    install = ["jwt"],
+    module = "gopkg.in/square/go-jose.v2",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":gopkg.in__square__go-jose.v2",
+        ":gopkg.in__square__go-jose.v2__json",
+    ],
+)
+
+go_mod_download(
+    name = "gopkg.in__yaml.v2",
+    _tag = "download",
+    module = "gopkg.in/yaml.v2",
+    version = "v2.2.8",
+)
+
+go_module(
+    name = "gopkg.in__yaml.v2",
+    download = ":_gopkg.in__yaml.v2#download",
+    install = ["."],
+    module = "gopkg.in/yaml.v2",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "k8s.io__apimachinery",
+    _tag = "download",
+    module = "k8s.io/apimachinery",
+    version = "v0.19.2",
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__api__errors",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/api/errors"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__apis__meta__v1",
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+        ":k8s.io__apimachinery__pkg__util__validation__field",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__api__resource",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/api/resource"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__gogo__protobuf__proto",
+        ":gopkg.in__inf.v0",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__apis__meta__v1",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/apis/meta/v1"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__gogo__protobuf__proto",
+        ":github.com__gogo__protobuf__sortkeys",
+        ":github.com__google__gofuzz",
+        ":k8s.io__apimachinery__pkg__api__resource",
+        ":k8s.io__apimachinery__pkg__conversion",
+        ":k8s.io__apimachinery__pkg__fields",
+        ":k8s.io__apimachinery__pkg__labels",
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+        ":k8s.io__apimachinery__pkg__selection",
+        ":k8s.io__apimachinery__pkg__types",
+        ":k8s.io__apimachinery__pkg__util__intstr",
+        ":k8s.io__apimachinery__pkg__util__runtime",
+        ":k8s.io__apimachinery__pkg__watch",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__apis__meta__v1__unstructured",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/apis/meta/v1/unstructured"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__apis__meta__v1",
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+        ":k8s.io__apimachinery__pkg__types",
+        ":k8s.io__apimachinery__pkg__util__json",
+        ":k8s.io__apimachinery__pkg__util__runtime",
+        ":k8s.io__klog__v2",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__conversion",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/conversion"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [":k8s.io__apimachinery__third_party__forked__golang__reflect"],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__conversion__queryparams",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/conversion/queryparams"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__fields",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/fields"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [":k8s.io__apimachinery__pkg__selection"],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__labels",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/labels"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__selection",
+        ":k8s.io__apimachinery__pkg__util__sets",
+        ":k8s.io__apimachinery__pkg__util__validation",
+        ":k8s.io__klog__v2",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__runtime",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/runtime"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__gogo__protobuf__proto",
+        ":k8s.io__apimachinery__pkg__conversion",
+        ":k8s.io__apimachinery__pkg__conversion__queryparams",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+        ":k8s.io__apimachinery__pkg__util__errors",
+        ":k8s.io__apimachinery__pkg__util__json",
+        ":k8s.io__apimachinery__pkg__util__naming",
+        ":k8s.io__apimachinery__pkg__util__runtime",
+        ":k8s.io__apimachinery__pkg__util__sets",
+        ":k8s.io__klog__v2",
+        ":sigs.k8s.io__structured-merge-diff__v4__value",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__runtime__schema",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/runtime/schema"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__gogo__protobuf__proto"],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__runtime__serializer",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/runtime/serializer"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+        ":k8s.io__apimachinery__pkg__runtime__serializer__json",
+        ":k8s.io__apimachinery__pkg__runtime__serializer__protobuf",
+        ":k8s.io__apimachinery__pkg__runtime__serializer__recognizer",
+        ":k8s.io__apimachinery__pkg__runtime__serializer__versioning",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__runtime__serializer__json",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/runtime/serializer/json"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__json-iterator__go",
+        ":github.com__modern-go__reflect2",
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+        ":k8s.io__apimachinery__pkg__runtime__serializer__recognizer",
+        ":k8s.io__apimachinery__pkg__util__framer",
+        ":k8s.io__apimachinery__pkg__util__yaml",
+        ":k8s.io__klog__v2",
+        ":sigs.k8s.io__yaml",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__runtime__serializer__protobuf",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/runtime/serializer/protobuf"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__gogo__protobuf__proto",
+        ":k8s.io__apimachinery__pkg__apis__meta__v1",
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+        ":k8s.io__apimachinery__pkg__runtime__serializer__recognizer",
+        ":k8s.io__apimachinery__pkg__util__framer",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__runtime__serializer__recognizer",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/runtime/serializer/recognizer"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__runtime__serializer__streaming",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/runtime/serializer/streaming"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__runtime__serializer__versioning",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/runtime/serializer/versioning"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__apis__meta__v1__unstructured",
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+        ":k8s.io__klog__v2",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__selection",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/selection"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__types",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/types"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__util__clock",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/util/clock"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__util__errors",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/util/errors"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [":k8s.io__apimachinery__pkg__util__sets"],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__util__framer",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/util/framer"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__util__intstr",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/util/intstr"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__gogo__protobuf__proto",
+        ":github.com__google__gofuzz",
+        ":k8s.io__klog__v2",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__util__json",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/util/json"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__util__naming",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/util/naming"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__util__net",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/util/net"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":golang.org__x__net__http2",
+        ":k8s.io__apimachinery__pkg__util__sets",
+        ":k8s.io__klog__v2",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__util__runtime",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/util/runtime"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [":k8s.io__klog__v2"],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__util__sets",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/util/sets"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__util__validation",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/util/validation"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [":k8s.io__apimachinery__pkg__util__validation__field"],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__util__validation__field",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/util/validation/field"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__util__errors",
+        ":k8s.io__apimachinery__pkg__util__sets",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__util__wait",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/util/wait"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__util__clock",
+        ":k8s.io__apimachinery__pkg__util__runtime",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__util__yaml",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/util/yaml"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__klog__v2",
+        ":sigs.k8s.io__yaml",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__version",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/version"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__pkg__watch",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["pkg/watch"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+        ":k8s.io__apimachinery__pkg__util__net",
+        ":k8s.io__apimachinery__pkg__util__runtime",
+        ":k8s.io__klog__v2",
+    ],
+)
+
+go_module(
+    name = "k8s.io__apimachinery__third_party__forked__golang__reflect",
+    download = ":_k8s.io__apimachinery#download",
+    install = ["third_party/forked/golang/reflect"],
+    module = "k8s.io/apimachinery",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "k8s.io__client-go",
+    _tag = "download",
+    module = "k8s.io/client-go",
+    version = "v0.19.2",
+)
+
+go_module(
+    name = "k8s.io__client-go__pkg__apis__clientauthentication",
+    download = ":_k8s.io__client-go#download",
+    install = ["pkg/apis/clientauthentication"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__apis__meta__v1",
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+    ],
+)
+
+go_module(
+    name = "k8s.io__client-go__pkg__apis__clientauthentication__v1alpha1",
+    download = ":_k8s.io__client-go#download",
+    install = ["pkg/apis/clientauthentication/v1alpha1"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__apis__meta__v1",
+        ":k8s.io__apimachinery__pkg__conversion",
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+        ":k8s.io__client-go__pkg__apis__clientauthentication",
+    ],
+)
+
+go_module(
+    name = "k8s.io__client-go__pkg__apis__clientauthentication__v1beta1",
+    download = ":_k8s.io__client-go#download",
+    install = ["pkg/apis/clientauthentication/v1beta1"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__apis__meta__v1",
+        ":k8s.io__apimachinery__pkg__conversion",
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+        ":k8s.io__client-go__pkg__apis__clientauthentication",
+    ],
+)
+
+go_module(
+    name = "k8s.io__client-go__pkg__version",
+    download = ":_k8s.io__client-go#download",
+    install = ["pkg/version"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [":k8s.io__apimachinery__pkg__version"],
+)
+
+go_module(
+    name = "k8s.io__client-go__plugin__pkg__client__auth__exec",
+    download = ":_k8s.io__client-go#download",
+    install = ["plugin/pkg/client/auth/exec"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__davecgh__go-spew__spew",
+        ":golang.org__x__crypto__ssh__terminal",
+        ":k8s.io__apimachinery__pkg__apis__meta__v1",
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+        ":k8s.io__apimachinery__pkg__runtime__serializer",
+        ":k8s.io__apimachinery__pkg__util__clock",
+        ":k8s.io__apimachinery__pkg__util__runtime",
+        ":k8s.io__client-go__pkg__apis__clientauthentication",
+        ":k8s.io__client-go__pkg__apis__clientauthentication__v1alpha1",
+        ":k8s.io__client-go__pkg__apis__clientauthentication__v1beta1",
+        ":k8s.io__client-go__tools__clientcmd__api",
+        ":k8s.io__client-go__tools__metrics",
+        ":k8s.io__client-go__transport",
+        ":k8s.io__client-go__util__connrotation",
+        ":k8s.io__klog__v2",
+    ],
+)
+
+go_module(
+    name = "k8s.io__client-go__rest",
+    download = ":_k8s.io__client-go#download",
+    install = ["rest"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":golang.org__x__net__http2",
+        ":k8s.io__apimachinery__pkg__api__errors",
+        ":k8s.io__apimachinery__pkg__apis__meta__v1",
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+        ":k8s.io__apimachinery__pkg__runtime__serializer__streaming",
+        ":k8s.io__apimachinery__pkg__types",
+        ":k8s.io__apimachinery__pkg__util__clock",
+        ":k8s.io__apimachinery__pkg__util__net",
+        ":k8s.io__apimachinery__pkg__util__sets",
+        ":k8s.io__apimachinery__pkg__watch",
+        ":k8s.io__client-go__pkg__version",
+        ":k8s.io__client-go__plugin__pkg__client__auth__exec",
+        ":k8s.io__client-go__rest__watch",
+        ":k8s.io__client-go__tools__clientcmd__api",
+        ":k8s.io__client-go__tools__metrics",
+        ":k8s.io__client-go__transport",
+        ":k8s.io__client-go__util__cert",
+        ":k8s.io__client-go__util__flowcontrol",
+        ":k8s.io__klog__v2",
+    ],
+)
+
+go_module(
+    name = "k8s.io__client-go__rest__watch",
+    download = ":_k8s.io__client-go#download",
+    install = ["rest/watch"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__apis__meta__v1",
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__serializer__streaming",
+        ":k8s.io__apimachinery__pkg__watch",
+    ],
+)
+
+go_module(
+    name = "k8s.io__client-go__tools__clientcmd__api",
+    download = ":_k8s.io__client-go#download",
+    install = ["tools/clientcmd/api"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":k8s.io__apimachinery__pkg__runtime",
+        ":k8s.io__apimachinery__pkg__runtime__schema",
+    ],
+)
+
+go_module(
+    name = "k8s.io__client-go__tools__metrics",
+    download = ":_k8s.io__client-go#download",
+    install = ["tools/metrics"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "k8s.io__client-go__transport",
+    download = ":_k8s.io__client-go#download",
+    install = ["transport"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":golang.org__x__oauth2",
+        ":k8s.io__apimachinery__pkg__util__net",
+        ":k8s.io__apimachinery__pkg__util__runtime",
+        ":k8s.io__apimachinery__pkg__util__wait",
+        ":k8s.io__client-go__util__connrotation",
+        ":k8s.io__client-go__util__workqueue",
+        ":k8s.io__klog__v2",
+    ],
+)
+
+go_module(
+    name = "k8s.io__client-go__util__cert",
+    download = ":_k8s.io__client-go#download",
+    install = ["util/cert"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [":k8s.io__client-go__util__keyutil"],
+)
+
+go_module(
+    name = "k8s.io__client-go__util__connrotation",
+    download = ":_k8s.io__client-go#download",
+    install = ["util/connrotation"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "k8s.io__client-go__util__flowcontrol",
+    download = ":_k8s.io__client-go#download",
+    install = ["util/flowcontrol"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":golang.org__x__time__rate",
+        ":k8s.io__apimachinery__pkg__util__clock",
+        ":k8s.io__utils__integer",
+    ],
+)
+
+go_module(
+    name = "k8s.io__client-go__util__keyutil",
+    download = ":_k8s.io__client-go#download",
+    install = ["util/keyutil"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_module(
+    name = "k8s.io__client-go__util__workqueue",
+    download = ":_k8s.io__client-go#download",
+    install = ["util/workqueue"],
+    module = "k8s.io/client-go",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":golang.org__x__time__rate",
+        ":k8s.io__apimachinery__pkg__util__clock",
+        ":k8s.io__apimachinery__pkg__util__runtime",
+    ],
+)
+
+go_mod_download(
+    name = "k8s.io__klog__v2",
+    _tag = "download",
+    module = "k8s.io/klog/v2",
+    version = "v2.2.0",
+)
+
+go_module(
+    name = "k8s.io__klog__v2",
+    download = ":_k8s.io__klog__v2#download",
+    install = ["."],
+    module = "k8s.io/klog/v2",
+    visibility = ["PUBLIC"],
+    deps = [":github.com__go-logr__logr"],
+)
+
+go_mod_download(
+    name = "k8s.io__utils",
+    _tag = "download",
+    module = "k8s.io/utils",
+    version = "v0.0.0-20200729134348-d5654de09c73",
+)
+
+go_module(
+    name = "k8s.io__utils__integer",
+    download = ":_k8s.io__utils#download",
+    install = ["integer"],
+    module = "k8s.io/utils",
+    visibility = ["PUBLIC"],
+    deps = [],
+)
+
+go_mod_download(
+    name = "sigs.k8s.io__structured-merge-diff__v4",
+    _tag = "download",
+    module = "sigs.k8s.io/structured-merge-diff/v4",
+    version = "v4.0.1",
+)
+
+go_module(
+    name = "sigs.k8s.io__structured-merge-diff__v4__value",
+    download = ":_sigs.k8s.io__structured-merge-diff__v4#download",
+    install = ["value"],
+    module = "sigs.k8s.io/structured-merge-diff/v4",
+    visibility = ["PUBLIC"],
+    deps = [
+        ":github.com__json-iterator__go",
+        ":gopkg.in__yaml.v2",
+    ],
+)
+
+go_mod_download(
+    name = "sigs.k8s.io__yaml",
+    _tag = "download",
+    module = "sigs.k8s.io/yaml",
+    version = "v1.2.0",
+)
+
+go_module(
+    name = "sigs.k8s.io__yaml",
+    download = ":_sigs.k8s.io__yaml#download",
+    install = ["."],
+    module = "sigs.k8s.io/yaml",
+    visibility = ["PUBLIC"],
+    deps = [":gopkg.in__yaml.v2"],
+)

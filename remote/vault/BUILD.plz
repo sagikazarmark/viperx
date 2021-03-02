@@ -4,9 +4,9 @@ go_library(
     visibility = ["//remote/..."],
     deps = [
         "//remote",
-        "//third_party/go/emperror.dev/errors",
-        "//third_party/go/github.com/hashicorp/vault/api",
-        "//third_party/go/github.com/spf13/viper",
+        "//third_party/go:emperror.dev__errors",
+        "//third_party/go:github.com__hashicorp__vault__api",
+        "//third_party/go:github.com__spf13__viper",
     ],
 )
 
@@ -15,8 +15,8 @@ go_test(
     srcs = glob(["*.go"]),
     deps = [
         "//remote",
-        "//third_party/go/emperror.dev/errors",
-        "//third_party/go/github.com/hashicorp/vault/api",
-        "//third_party/go/github.com/spf13/viper",
+        "//third_party/go:emperror.dev__errors",
+        "//third_party/go:github.com__hashicorp__vault__api",
+        "//third_party/go:github.com__spf13__viper",
     ],
 )
