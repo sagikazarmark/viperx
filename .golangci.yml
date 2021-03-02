@@ -32,20 +32,26 @@ linters:
         - gosec
         - gosimple
         - govet
+        - ifshort
         - ineffassign
         - lll
+        - makezero
         - misspell
         - nakedret
         - nlreturn
         - noctx
         - nolintlint
         - prealloc
+        - predeclared
+        - revive
         - rowserrcheck
         - scopelint
         - sqlclosecheck
         - staticcheck
         - structcheck
         - stylecheck
+        - thelper
+        - tparallel
         - typecheck
         - unconvert
         - unparam
@@ -60,6 +66,8 @@ linters:
 
         # don't enable:
         # - asciicheck
+        # - exhaustivestruct
+        # - forbidigo
         # - funlen
         # - godox
         # - goerr113
@@ -67,5 +75,7 @@ linters:
         # - interfacer
         # - maligned
         # - nestif
+        # - paralleltest
         # - testpackage
+        # - wrapcheck
         # - wsl
