@@ -19,7 +19,7 @@ jobs:
           go-version: 1.16
 
       - name: Set up GOPATH
-        run: echo "::set-env name=GOPATH::$(go env GOPATH)"
+        run: echo "GOPATH=$(go env GOPATH)" >> $GITHUB_ENV
 
       - name: Checkout code
         uses: actions/checkout@v2
