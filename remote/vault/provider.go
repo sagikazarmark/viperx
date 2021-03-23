@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"io"
-	"net/url"
 
 	"emperror.dev/errors"
 	"github.com/hashicorp/vault/api"
@@ -31,25 +30,15 @@ func NewConfigProvider() *ConfigProvider {
 }
 
 func (p ConfigProvider) Get(rp viper.RemoteProvider) (io.Reader, error) {
+	// TODO: Initialize the client Once
 	client, ok := p.clients[rp.Endpoint()]
 	if !ok {
 		endpoint := rp.Endpoint()
-		u, err := url.Parse(endpoint)
-		if err != nil {
-			return nil, errors.WrapIf(err, "failed to parse provider endpoint")
-		}
 
-		query := u.Query()
-		u.RawQuery = ""
-
-		config := api.DefaultConfig()
-		config.Address = u.String()
-		c, err := api.NewClient(config)
+		c, err := api.NewClient(api.DefaultConfig())
 		if err != nil {
 			return nil, errors.WrapIf(err, "failed to create vault api client")
 		}
-
-		c.SetToken(query.Get("token"))
 
 		client = c
 		p.clients[endpoint] = c
@@ -68,7 +57,11 @@ func (p ConfigProvider) Get(rp viper.RemoteProvider) (io.Reader, error) {
 		return nil, errors.Errorf("source: %s errors: %v", rp.Path(), secret.Warnings)
 	}
 
-	b, err := json.Marshal(secret.Data["data"])
+	secretData := secret.Data
+	if secretV2, found := secret.Data["data"].(map[string]interface{}); found {
+		secretData = secretV2
+	}
+	b, err := json.Marshal(secretData)
 	if err != nil {
 		return nil, errors.WrapIf(err, "failed to json encode secret")
 	}
@@ -77,7 +70,11 @@ func (p ConfigProvider) Get(rp viper.RemoteProvider) (io.Reader, error) {
 }
 
 func (p ConfigProvider) Watch(rp viper.RemoteProvider) (io.Reader, error) {
-	return nil, errors.New("watch is not implemented for the vault config provider")
+	b, err := p.Get(rp)
+	if err != nil {
+		return nil, err
+	}
+	return b, nil
 }
 
 func (p ConfigProvider) WatchChannel(rp viper.RemoteProvider) (<-chan *viper.RemoteResponse, chan bool) {
