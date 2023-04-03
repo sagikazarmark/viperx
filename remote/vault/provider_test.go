@@ -3,6 +3,7 @@ package vault
 import (
 	"net/url"
 	"os"
+	"strings"
 	"testing"
 
 	"github.com/hashicorp/vault/api"
@@ -43,6 +44,14 @@ func TestConfigProvider(t *testing.T) {
 	viper.RemoteConfig = NewConfigProvider()
 	viper.SupportedRemoteProviders = append(viper.SupportedRemoteProviders, "vault")
 
+	// extract root path from the secret path
+	mountPath := strings.Split(secretPath, "/")[0] + "/"
+
+	if !mountExists(client, mountPath) {
+		createMountOrDie(t, client, mountPath)
+		defer deleteMount(client, mountPath)
+	}
+
 	_, err = client.Logical().Write(secretPath, map[string]interface{}{
 		"data": map[string]interface{}{
 			"database": map[string]interface{}{
@@ -79,4 +88,29 @@ func TestConfigProvider(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+}
+
+func mountExists(client *api.Client, mountPath string) bool {
+	mounts, err := client.Sys().ListMounts()
+	if err != nil {
+		return false
+	}
+
+	_, ok := mounts[mountPath]
+	return ok
+}
+
+func createMountOrDie(t *testing.T, client *api.Client, mountPath string) {
+	err := client.Sys().Mount(mountPath, &api.MountInput{
+		Type:        "kv",
+		Description: "viperx auto tests",
+		Config:      api.MountConfigInput{},
+	})
+	if err != nil {
+		t.Fatalf("secret mount path not found for %s and failed to create it as a fixture: %v", mountPath, err)
+	}
+}
+
+func deleteMount(client *api.Client, mountPath string) {
+	_ = client.Sys().Unmount(mountPath)
 }
